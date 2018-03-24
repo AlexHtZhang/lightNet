@@ -22,14 +22,7 @@ gcc -I/usr/local/cuda/include/  -Wall -Wfatal-errors  -Ofast....
 .....
 gcc -I/usr/local/cuda/include/  -Wall -Wfatal-errors  -Ofast -lm....
 ```
-If you have any errors, try to fix them? (CUDA and OpenCV section can be helpful) If everything seems to have compiled correctly, try running it!
-```
-./darknet
-```
-You should get the output:
-```
-usage: ./darknet <function>
-```
+If you have any errors, try to fix them? (CUDA and OpenCV section can be helpful) If everything seems to have compiled correctly,
 Great! Now you can go to the 'Detection Using A Pre-Trained Model' to try out the pretrained weight on stopsign, hamburger and dumpling.
 
 ## Detection Using A Pre-Trained Model
