@@ -1,6 +1,6 @@
 # lightNet
 An ultimate universal customizable object detector based on YOLO v2.
-![Alt text](examples/stopsign_result.png "stopsign_result" ){:height="36px" width="36px"} ![Alt text](examples/dumpling_result.jpg?raw=true "dumpling_result"){:height="36px" width="36px"} ![Alt text](examples/hamburger_result.png?raw=true "hamburger_result"){:height="36px" width="36px"}
+![img stopsign_result](examples/stopsign_result.png "stopsign_result" ){:height="36px" width="36px"} ![Alt text](examples/dumpling_result.jpg "dumpling_result"){:height="36px" width="36px"} ![Alt text](examples/hamburger_result.png "hamburger_result"){:height="36px" width="36px"}
 ## Installing The Base lightNet
 
 First clone the lightNet git repository here. This can be accomplished by:
@@ -64,7 +64,7 @@ dumpling: 89%
 Enter Image Path:
 ```
 Not compiled with OpenCV, saving to predictions.png in the darknet folder instead
-![Alt text](examples/dumpling_result.jpg?raw=true "dumpling_result"){:height="36px" width="36px"}
+![Alt text](examples/dumpling_result.jpg?raw=true "dumpling_result")
 
 Darknet prints out the objects it detected, its confidence, and how long it took to find them. Since we are using Darknet on the GPU, it's fast. If we use the CPU it takes around 6-12 seconds per image.
 
