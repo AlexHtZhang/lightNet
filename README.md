@@ -1,15 +1,14 @@
 # lightNet
 An ultimate universal customizable object detector based on YOLO v2.
-![Alt text](examples/stopsign_result.png?raw=true "stopsign_result")
-![Alt text](examples/dumpling_result.jpg?raw=true "dumpling_result")
-![Alt text](examples/hamburger_result.png?raw=true "hamburger_result")
+![Alt text](examples/stopsign_result.png "stopsign_result" ){:height="36px" width="36px"} ![Alt text](examples/dumpling_result.jpg?raw=true "dumpling_result"){:height="36px" width="36px"} ![Alt text](examples/hamburger_result.png?raw=true "hamburger_result"){:height="36px" width="36px"}
 ## Installing The Base lightNet
 
 First clone the lightNet git repository here. This can be accomplished by:
 ```
 git clone https://github.com/AlexHtZhang/lightNet.git
-cd lightnet
+cd lightNet
 cd darknet
+make clean
 make
 ```
 If this works you should see a whole bunch of compiling information fly by:
@@ -21,7 +20,7 @@ gcc -I/usr/local/cuda/include/  -Wall -Wfatal-errors  -Ofast....
 .....
 gcc -I/usr/local/cuda/include/  -Wall -Wfatal-errors  -Ofast -lm....
 ```
-If you have any errors, try to fix them? If everything seems to have compiled correctly, try running it!
+If you have any errors, try to fix them? (CUDA and OpenCV section can be helpful) If everything seems to have compiled correctly, try running it!
 ```
 ./darknet
 ```
@@ -36,24 +35,37 @@ This section will guide you through detecting objects with our costomized YOLO s
 
 You already have the config file for YOLO in the cfg/ subdirectory. You will have to download the [pre-trained  weight file here for dumplings](https://drive.google.com/file/d/1nupjnT9uaWSCmNOj6lD-nBcxww2LEMnG/view?usp=sharing). And just run this:
 ```
-./darknet yolo test cfg/yolov1/yolo.cfg yolov1.weights test/dumpling.JPEG
+./darknet detector test test/dumpling.JPEG cfg/yolo-obj.cfg yolo-obj_3000_dumpling.weights
 ```
 Assuming your dumplings weight file is in the base directory, and you 'dumpling' is the only class in your 'data/names.list' file you will see something like this:
 ```
 0: Crop Layer: 448 x 448 -> 448 x 448 x 3 image
 1: Convolutional Layer: 448 x 448 x 3 image, 64 filters -> 224 x 224 x 64 image
 ....
-27: Connected Layer: 4096 inputs, 1225 outputs
-28: Detection Layer
-Loading weights from yolo.weights...Done!
-data/dog.jpg: Predicted in 8.012962 seconds.
-0.941620 car
-0.397087 bicycle
-0.220952 dog
+27 route  26 24
+28 conv   1024  3 x 3 / 1    13 x  13 x3072   ->    13 x  13 x1024
+29 conv     30  1 x 1 / 1    13 x  13 x1024   ->    13 x  13 x  30
+30 detection
+mask_scale: Using default '1.000000'
+Loading weights from yolo-obj_3000_dumpling.weights...Done!
+Enter Image Path:
 ```
-![Alt text](examples/dumpling_result.jpg?raw=true "dumpling_result")
+Need enter the image path again
+```
+Enter Image Path: test/dumpling.JPEG
+```
+```
+test/dumpling.JPEG: Predicted in 0.428406 seconds.
+dumpling: 87%
+dumpling: 88%
+dumpling: 89%
+dumpling: 90%
+dumpling: 89%
+Enter Image Path:
+```
+Not compiled with OpenCV, saving to predictions.png in the darknet folder instead
+![Alt text](examples/dumpling_result.jpg?raw=true "dumpling_result"){:height="36px" width="36px"}
 
-Not compiled with OpenCV, saving to predictions.png instead
 Darknet prints out the objects it detected, its confidence, and how long it took to find them. Since we are using Darknet on the GPU, it's fast. If we use the CPU it takes around 6-12 seconds per image.
 
 We didn't compile Darknet with OpenCV so it can't display the detections directly. Instead, it saves them in predictions.png. You can open it to see the detected objects.
@@ -63,7 +75,7 @@ We didn't compile Darknet with OpenCV so it can't display the detections directl
 [pre-trained  weight file here for stopsign](https://drive.google.com/open?id=1q2AN3JfhXLYAGZ95S3uswXspNmT1tmut).
 [pre-trained  weight file here for hamburger](https://drive.google.com/file/d/12x9N_zUoNk_M4_20tba3YZ35L60s9Bsy/view?usp=sharing).
 
-## If you want to use CUDA or OpenCV (by default our code use CUDA)
+## CUDA and OpenCV (by default our code use CUDA)
 
 ### Compiling With CUDA
 Darknet on the CPU is fast but it's like 500 times faster on GPU! You'll have to have an Nvidia GPU and you'll have to install CUDA. I won't go into CUDA installation in detail because it is terrifying.

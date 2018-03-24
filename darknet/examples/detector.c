@@ -495,7 +495,7 @@ void validate_detector_recall(char *cfgfile, char *weightfile)
     srand(time(0));
 
     //list *plist = get_paths("data/coco_val_5k.list");
-    list *plit = get_paths("data/valid.txt")
+    list *plist = get_paths("data/valid.txt");
     char **paths = (char **)list_to_array(plist);
 
     layer l = net->layers[net->n-1];
@@ -557,7 +557,7 @@ void validate_detector_recall(char *cfgfile, char *weightfile)
         }
 
         fprintf(stderr, "%5d %5d %5d\tRPs/Img: %.2f\tIOU: %.2f%%\tRecall:%.2f%%\n", i, correct, total, (float)proposals/(i+1), avg_iou*100/total, 100.*correct/total);
-        fprintf(stderr, "proposals:%5d\tPrecision:%.2f%%\n",proposals,100.*correct/(float)proposals); );//this line is added
+        fprintf(stderr, "proposals:%5d\tPrecision:%.2f%%\n",proposals,100.*correct/(float)proposals);//this line is added
         free(id);
         free_image(orig);
         free_image(sized);
