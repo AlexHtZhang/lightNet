@@ -1,6 +1,8 @@
 # lightNet
 An ultimate universal customizable object detector based on YOLO v2.
-![img stopsign_result](examples/stopsign_result.png "stopsign_result" ){:height="36px" width="36px"} ![Alt text](examples/dumpling_result.jpg "dumpling_result"){:height="36px" width="36px"} ![Alt text](examples/hamburger_result.png "hamburger_result"){:height="36px" width="36px"}
+
+<img src="examples/stopsign_result.png" alt="stopsign_result" height="250px" width="250px"> <img src="examples/dumpling_result.jpg" alt="dumpling_result" height="250px" width="250px"> <img src="examples/hamburger_result.png" alt="hamburger_result" height="250px" width="250px">
+
 ## Installing The Base lightNet
 
 First clone the lightNet git repository here. This can be accomplished by:
