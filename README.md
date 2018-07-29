@@ -1,4 +1,4 @@
-# lightNet (Yes, I mimicked Darknet instruction style) 
+# lightNet 
 An ultimate universal customizable object detector based on YOLO v2.
 
 <img src="examples/stopsign_result.png" alt="stopsign_result" height="250px" width="250px"> <img src="examples/dumpling_result.jpg" alt="dumpling_result" height="250px" width="250px"> <img src="examples/hamburger_result.png" alt="hamburger_result" height="250px" width="250px">
